@@ -4,10 +4,140 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="style2.css">
+    <title>Cadastro Pet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="js/apicaramelos.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="topnav">
+        <a class="active" href="home.html">Home</a>
+        <a href="#news">Cadastro Filho Unico</a>
+        <a href="#contact">Adoção Conjuta</a>
+        <a href="#about">Dashboard</a>
+        <a href="cadastro.html">Cadastrar Pet</a>
+    </div>
+    <form>
+        <!--INICIO Linha das checkbocks do tipo de animal-->
+        <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1"> Espécie </div>
+            <div class="col-sm-2 ">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="gridRadios1" name="gridRadios" value="Caes">
+                <label class="form-check-label" for="Caes">
+                  Cães
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="gridRadios2" name="gridRadios" value="Gatos">
+                <label class="form-check-label" for="Gatos">
+                  Gatos
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="gridRadios3" name="gridRadios" value="Aves">
+                <label class="form-check-label" for="Aves">
+                  Aves
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="gridRadios4" name="gridRadios" value="Outros">
+                  <label class="form-check-label" for="Outros">
+                    Outros
+                  </label>
+                </div>
+            </div>
+        </div>
+        <!--FIM Linha das checkbocks do tipo de animal-->
 
+        <!--INICIO Linha Nome do animal-->
+        <div class="form-group row">
+            <div class="col-sm-1"></div>
+          <label for="inputNome" class="col-sm-1 col-form-label">Nome</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="inputNome" placeholder="Insira o Nome do Pet">
+          </div>
+        </div>
+        <!--FIM Linha Nome do animal-->
+
+        <!--INICIO Linha Caracteristicas do animal-->
+        <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <label class="col-sm-2 col-form-label">Caracteristicas</label>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2"></label>
+            <label class="col-sm-2 col-form-label">Cor</label>
+            <label class="col-sm-2 col-form-label">Raça</label>
+            <label class="col-sm-2 col-form-label">Porte</label>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-2"> </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="cor">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="raca">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="porte">
+                </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-2"> </div>
+                <div class="col-sm-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                          Vacinado
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                          Vermifugado
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                          Castrado
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--FIM Linha Caracteristicas do animal-->
+
+        <!--INICIO Linha Obervações do animal-->
+        <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <label class="col-sm-3 col-form-label">Observações e/ou histórico</label>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3">
+                <textarea class="form-control" id="Obs" rows="7"> </textarea>
+            </div>    
+        </div>
+        <!--FIM Linha Obervações do animal-->
+
+        <div class="form-group row">
+            <div class="col-sm-5"></div>
+            <input type="submit" value="Cadastrar" onclick="">
+        </div>
+      </form>
 </body>
 </html>
