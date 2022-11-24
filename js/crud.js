@@ -7,10 +7,11 @@ function ApagarRegistro(id){
 
     if(_confirm_) {
         $.ajax({
-            url: url + "/" + id,
             type: 'DELETE',
-            success: function(result) {
-            }
+            url: url + "/" + id,
+            success: function(result) {},
+            contentType: "application/json",
+            dataType: "json"
         });
         location.reload();
     }
