@@ -28,6 +28,7 @@ function EditarRegistro(posicao){
             $("#txtsexo").val(pets[i].sexo)
             $("#txtraca").val(pets[i].raca)
             $("#txtcor").val(pets[i].cor)
+            $("#txtespecie").val(pets[i].especie.especie)
             $('#gridCheck1').prop('checked', pets[i].vacinado)
             $('#gridCheck2').prop('checked', pets[i].vermifugado)
             $('#gridCheck3').prop('checked', pets[i].castrado)
@@ -47,6 +48,7 @@ $(function () {
             <td>${item.sexo}</td>
             <td>${item.raca}</td>
             <td>${item.cor}</td>
+            <td>${item.especie.especie}</td>
             <td>${item.vacinado}</td>
             <td>${item.vermifugado}</td>
             <td>${item.castrado}</td>
@@ -66,6 +68,7 @@ $(function () {
         let Sexo = $("#txtsexo").val()
         let Raca = $("#txtraca").val()
         let Cor = $("#txtcor").val()
+        let Especie = $("#txtespecie").val()
         let Vacinado = $('#gridCheck1').is(":checked")
         let Vermifugado = $('#gridCheck2').is(":checked")
         let Castrado = $('#gridCheck3').is(":checked")
@@ -75,6 +78,7 @@ $(function () {
         registro.Sexo = Sexo
         registro.Raca = Raca
         registro.Cor = Cor
+        registro.Especie = verificarEspecie(Especie)
         registro.Vacinado = Vacinado
         registro.Vermifugado = Vermifugado
         registro.Castrado = Castrado
@@ -104,7 +108,6 @@ $(function () {
             }
         else {
             let _confirm_ = confirm("Deseja salvar um novo registro?")
-
                 if(_confirm_) {
                     const body = `{"nome": "${registro.Nome}", 
                                    "idade": "${registro.Idade}",  
@@ -115,11 +118,11 @@ $(function () {
                                    "vermifugado": "${registro.Vermifugado}",
                                     "castrado": "${registro.Castrado}",
                                     "ong": {
-                                        "id": 2,
-                                        "nome": "Animaisbons",
+                                        "id": 1,
+                                        "nome": "Animalar",
                                         "cnpj": "81538584000155",
-                                        "telefone": "81538584000155",
-                                        "site": "www.animaisbons.org.br",
+                                        "telefone": "00000",
+                                        "site": "www.ClubedosViralatasNovo.org.br",
                                         "entrega": true,
                                         "usuario": {
                                             "id": 1,
@@ -127,19 +130,16 @@ $(function () {
                                             "senha": "34cPr3XwOdZ"
                                         },
                                         "responsavelOng": {
-                                            "id": 6,
-                                            "nome": "test",
-                                            "cpf": "11111"
+                                            "id": 1,
+                                            "nome": "Franny Dominico",
+                                            "cpf": "37161630665"
                                         },
                                         "tipoAjuda": {
                                             "id": 1,
                                             "tipoAjuda": "voluntaria"
                                         }
                                     },
-                                    "especie": {
-                                        "id": 1,
-                                        "especie": "Cao"
-                                    } }`;
+                                    "especie": ${registro.Especie}}`;
                     $.ajax({
                         type: 'POST',
                         url: url,
@@ -168,3 +168,31 @@ $(function () {
 
     })
 })
+
+function verificarEspecie(especie){
+    if(especie == "Cao"){
+       especie = `{
+            "id": 1,
+            "especie": "Cao"
+        }`
+    }
+    else if(especie == "Gato"){
+       especie = `{
+            "id": 2,
+            "especie": "Gato"
+        }`
+    } else if(especie == "Ave"){
+        especie = `{
+             "id": 3,
+             "especie": "Aves"
+         }`
+     }else{
+        especie = `{
+            "id": 4,
+            "especie": "Outros"
+        }`
+     }
+
+     return especie
+
+}
