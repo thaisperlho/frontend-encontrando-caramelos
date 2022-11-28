@@ -13,9 +13,8 @@ function ApagarRegistro(id){
             contentType: "application/json",
             dataType: "json"
         });
-        location.reload();
+        document.location.reload();
     }
-
 }
 
 function EditarRegistro(posicao){
