@@ -11,10 +11,11 @@ function ApagarRegistro(id){
             url: url + "/" + id,
             success: function(result) {},
             contentType: "application/json",
-            dataType: "json"
+            dataType: "json",
         });
-        document.location.reload();
+        location.reload();
     }
+    alert("registro excluido com sucesso!")
 }
 
 function EditarRegistro(posicao){
